@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Niconne" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <!--title-->
+    <title>Black Speech Translator</title>
+</head>
+
+<body>
+    <!--using bootstrap for the grid-->
+    <div class="container-fluid">
+        <!--title of the page-->
+        <h1 id="title">Black Speech Translator</h1>
+        <!---wrapped in a single row-->
+        <div class="row">
+            <!--three columns this one with the image-->
+            <div class="col-sm-4">
+                <img class="wraith" src="image/ringWraith.png" />
+            </div>
+            <!--the middle column with the word to translate and the words-->
+            <div class="col-sm-4">
+                <img id="image_writing" src="image/ring_writing.png" />
+                <!--sentence to translate-->
+                <p id="word_to_translate">Ash nazg durbatuluk, ash nazg gimbatul.</p>
+                <!---container for the buttons to go-->
+                <div id="container_words"></div>
+                <!--buttons for the words of each translation-->
+                <div id="button_words">
+                    <button class="words">one</button>
+                    <button class="words">ring</button>
+                    <button class="words">to rule them all</button>
+                    <button class="words">one</button>
+                    <button class="words">ring</button>
+                    <button class="words">to find them</button>
+                </div>
+
+                <!--gives the outcome if correct or not-->
+                <div class="outcome" value="one ring to rule them all one ring to find them"></div>
+            </div>
+            <!--last column has the sauron tower image-->
+            <div class="col-sm-4">
+                <img class="tower" src="image/sauron_tower.jpg" />
+
+            </div>
+        </div>
+        <div class="form-row text-center">
+
+            <div class="col-sm-12">
+                <!--translate button-->
+                <button class="verify">verify</button>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+<script src="jquery.js"></script>
+<script>
+    $("#button_words").on("click", ".words", function() {
+        $("#container_words").append(this);
+    });
+    $("#container_words").on("click", ".words", function() {
+        $("#button_words").append(this);
+    });
+    $(".verify").on("click", function() {
+        let result = $("#container_words .words").text()
+        console.log(result);
+        if (result === "oneringto rule them alloneringto find them") {
+            $(".outcome").text("you win");
+
+        } else {
+            $(".outcome").text("You lose");
+        };
+
+    });
+
+
+    //let compare = $("#container_words .words").map(function() {
+    //    return $(this).text();
+    //    console.log(this);
+    // });
+
+</script>
+
+</html>
