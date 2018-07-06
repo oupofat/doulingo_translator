@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Example</title>
+</head>
+
+<body>
+<ul id="fruits">
+  <li>apple</li>
+  <li>banana</li>
+  <li>orange</li>
+</ul>
+<input id="new-fruit-input" type="text">
+<button id="add-fruit-button">Add fruit</button>
+
+
+</body>
+<script src="jquery.js"></script>
+<script>
+$("#add-fruit-button").on("click", function() {
+  var newFruit = $("#new-fruit-input").val();
+  var newLi = $("<li>" + newFruit + "</li>");
+  $("#fruits").append(newLi);
+});
+
+</script>
+
+</html>

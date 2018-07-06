@@ -86,7 +86,7 @@ body {
     background-color: #F96423;
 }
 
-.words {
+.words, .one {
     font-size: 25px;
     font-family: 'Niconne', cursive;
     color: #20140B;

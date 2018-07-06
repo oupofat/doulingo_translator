@@ -30,12 +30,12 @@
                 <div id="container_words"></div>
                 <!--buttons for the words of each translation-->
                 <div id="button_words">
-                    <button class="words">one</button>
-                    <button class="words">ring</button>
-                    <button class="words">to rule them all</button>
-                    <button class="words">one</button>
-                    <button class="words">ring</button>
-                    <button class="words">to find them</button>
+                    <button class="words" value="one">one</button>
+                    <button class="words" value="ring">ring</button>
+                    <button class="words" value="to rule them all">to rule them all</button>
+                    <button class="words" value="one">one</button>
+                    <button class="words" value="ring">ring</button>
+                    <button class="words" value="to find them">to find them</button>
                 </div>
 
                 <!--gives the outcome if correct or not-->
@@ -64,11 +64,26 @@
 <script src="jquery.js"></script>
 <script>
     $("#button_words").on("click", ".words", function() {
-        $("#container_words").append(this);
+        let getWords = $(".words").val();
+        console.log(getWords);
+        var newWord = $("<button class=" + getWords + ">" + getWords + "</button>");
+        console.log(newWord);
+        $("#container_words").append(newWord);
     });
-    $("#container_words").on("click", ".words", function() {
-        $("#button_words").append(this);
-    });
+    $("#button_words").on("click", ".words", function() {
+        $(this).remove();
+        console.log(this)
+    })
+    //old code that used the "(this)" method
+    //   $("#button_words").on("click", ".words", function() {
+    //        $("#container_words").append(this);
+    //    });
+    // $("#container_words").on("click", ".words", function() {
+    //    $("#button_words").append(this);
+    // });
+
+
+
     $(".verify").on("click", function() {
         let result = $("#container_words .words").text()
         console.log(result);
@@ -80,9 +95,6 @@
         };
 
     });
-
-
-
 
 </script>
 
