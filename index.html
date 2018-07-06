@@ -66,14 +66,14 @@
     $("#button_words").on("click", ".words", function() {
         let getWords = $(".words").val();
         console.log(getWords);
-        var newWord = $("<button class=" + getWords + ">" + getWords + "</button>");
-        console.log(newWord);
+        var newWord = ("<button class='words' value=" + getWords + ">" + getWords + "</button>");
+      // console.log(newWord);
         $("#container_words").append(newWord);
     });
-    $("#button_words").on("click", ".words", function() {
-        $(this).remove();
-        console.log(this)
-    })
+   // $("#button_words").on("click", ".words", function() {
+    //    $(this).remove();
+       // console.log(this)
+    //});
     //old code that used the "(this)" method
     //   $("#button_words").on("click", ".words", function() {
     //        $("#container_words").append(this);
@@ -87,7 +87,7 @@
     $(".verify").on("click", function() {
         let result = $("#container_words .words").text()
         console.log(result);
-        if (result === "oneringto rule them alloneringto find them") {
+        if (result === "one ring to rule them all one ring to find them") {
             $(".outcome").text("you win");
 
         } else {
