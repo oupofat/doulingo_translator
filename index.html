@@ -63,17 +63,19 @@
 </body>
 <script src="jquery.js"></script>
 <script>
+    //when clicked add the button to the container_words and appends the value with it
     $("#button_words").on("click", ".words", function() {
-        let getWords = $(".words").val();
-        console.log(getWords);
-        var newWord = ("<button class='words' value=" + getWords + ">" + getWords + "</button>");
-      // console.log(newWord);
-        $("#container_words").append(newWord);
+        let getWords = $(this).val();
+        //console.log(getWords);
+        $("#container_words").append("<button class='words' value=" + getWords + ">" + getWords + "</button>");
+        //console.log(newWord);
+        //$("#container_words").append(newWord);
     });
-   // $("#button_words").on("click", ".words", function() {
-    //    $(this).remove();
-       // console.log(this)
-    //});
+    //this removes the button from the button_words container
+    $("#button_words").on("click", ".words", function() {
+        $(this).remove();
+        //console.log(this)
+    });
     //old code that used the "(this)" method
     //   $("#button_words").on("click", ".words", function() {
     //        $("#container_words").append(this);
@@ -86,8 +88,8 @@
 
     $(".verify").on("click", function() {
         let result = $("#container_words .words").text()
-        console.log(result);
-        if (result === "one ring to rule them all one ring to find them") {
+        //console.log(result);
+        if (result === "oneringto rule them alloneringto find them") {
             $(".outcome").text("you win");
 
         } else {
@@ -95,7 +97,6 @@
         };
 
     });
-
 </script>
 
 </html>
